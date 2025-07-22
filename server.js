@@ -24,7 +24,7 @@ mongoose
   .catch((error) => console.log(error));
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT;
 
 app.use(
   cors({
@@ -59,4 +59,8 @@ app.use("/api/shop/review", shopReviewRouter);
 
 app.use("/api/common/feature", commonFeatureRouter);
 
+if (!PORT) {
+  console.error("❌ Railway did not provide PORT");
+  process.exit(1);
+}
 app.listen(PORT, () => console.log(`Server is now running on port ${PORT}`));
