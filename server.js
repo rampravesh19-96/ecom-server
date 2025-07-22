@@ -28,7 +28,7 @@ const PORT = process.env.PORT || 8080;
 
 app.use(
   cors({
-    origin: ["http://localhost:5173","https://ecom-client-phi.vercel.app"],
+    origin: "https://ecom-client-phi.vercel.app",
     methods: ["GET", "POST", "DELETE", "PUT"],
     allowedHeaders: [
       "Content-Type",
